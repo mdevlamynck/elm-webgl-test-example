@@ -1,0 +1,15 @@
+name: "WebGL Tests"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: yarn
+    - run: yarn elm make src/Main.elm
+    - run: yarn tests:webgl
+          
+          
+          

@@ -1,0 +1,14 @@
+= Elm WebGL tests example
+
+Example of a setup for testing webgl rendering.
+The approach uses snapshot testing meaning that when a test is run for the first time it's result will be considered as the expected result and stored as a snapshot.
+On subsequent test run, the result is compared to the stored snapshot and if it matches the test passes.
+When the result and the snapshot differ, a diff image is generated to help debug.
+
+Uses:
+
+* `node-elm-compiler` to build test cases to html
+* `puppeteer` to run the generated code through a headless browser and take a screenshot of rendered webgl
+* `jest-image-snapshot` to test the screenshot against a reference and generate a diff image on failure
+
+Run webgl tests with `yarn tests:webgl`.
